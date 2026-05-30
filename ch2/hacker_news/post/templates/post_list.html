@@ -4,23 +4,23 @@
 
 <h2>게시글 목록</h2>
 {% if posts %}
-    <ul>
-        {% for post in posts %}
-        <li>
-            <a href="{% url 'post' post.id %}">{{ post.title }}</a>
-        </li>
-        {% endfor %}
-    </ul>
+  <ol type="1">
+    {% for post in posts %}
+    <li>
+      <a href="{% url 'post' post.id %}">{{ post.title }}</a>
+    </li>
+    {% endfor %}
+  </ol>
 {% else %}
-    <p>No Posts!</p>
+  <p>No Posts!</p>
 {% endif %}
 
 <hr>
 <form action="{% url 'posts' %}" method="post">
-    {% csrf_token %}
-    <h2>새로운 게시글 작성</h2>
-    {{ form }}
-    <input type="submit" value="작성">
+  {% csrf_token %}
+  <h2>새로운 게시글 작성</h2>
+  {{ form }}
+  <input type="submit" value="작성">
 </form>
 
 {% endblock %}
