@@ -11,6 +11,13 @@ def posts_view(request):
         return render(
             request, template_name="post_list.html", context=context
         )
+
+def post_create_view(request):
+    if request.method == "GET":
+        context = {"form": PostForm}
+        return render(
+            request, template_name="post_create.html", context=context
+        )
     elif request.method == "POST":
         form = PostForm(request.POST)
         if form.is_valid():
