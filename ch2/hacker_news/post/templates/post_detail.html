@@ -1,3 +1,7 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
 <h2>{{ post.title }}</h2>
 <ul>
     <li>내용: {{ post.body }}</li>
@@ -11,3 +15,5 @@
     <input type="submit" value="좋아요➕">
 </form>
 <a href="{% url 'posts' %}">게시글 목록</a>
+
+{% endblock %}
