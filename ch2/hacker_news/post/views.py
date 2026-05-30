@@ -1,4 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.db.models import F
+
 from post.models import Post
 from post.forms import PostForm
 
@@ -31,4 +33,13 @@ def post_view(request, post_id):
     context = {"post": post}
     return render(
         request, template_name="post_detail.html", context=context
+    )
+
+def post_like_view(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+    post.points = F("points") + 1 # post.points = F()
+    post.save()
+    post.refresh_from_db()
+    return render(
+        request, template_name="post_detail.html", context={"post": post}
     )
