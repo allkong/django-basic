@@ -119,3 +119,6 @@ STATIC_URL = 'static/'
 
 LOGIN_REDIRECT_URL = "home"
 LOGOUT_REDIRECT_URL = "home"
+
+KAKAO_REST_API_KEY = '9a2148dbe27f014076c03c4440459a68'
+KAKAO_CALLBACK_URL = 'http://localhost:8000/users/social/kakao/callback/'
